@@ -1,0 +1,4 @@
+rootProject.name = 'console-to-slf4j'
+
+includeBuild('../console')
+
