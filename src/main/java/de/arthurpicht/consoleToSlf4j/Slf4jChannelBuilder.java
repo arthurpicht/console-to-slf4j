@@ -24,8 +24,13 @@ public class Slf4jChannelBuilder {
         return this;
     }
 
-    public Slf4jChannelBuilder asMuted() {
+    public Slf4jChannelBuilder withMutedOutput() {
         this.muted = true;
+        return this;
+    }
+
+    public Slf4jChannelBuilder withMutedOutput(boolean muted) {
+        this.muted = muted;
         return this;
     }
 

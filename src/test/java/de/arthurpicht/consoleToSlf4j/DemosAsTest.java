@@ -2,6 +2,7 @@ package de.arthurpicht.consoleToSlf4j;
 
 import de.arthurpicht.console.Console;
 import de.arthurpicht.console.config.ConsoleConfigurationBuilder;
+import de.arthurpicht.console.message.Level;
 import de.arthurpicht.console.message.format.Format;
 import de.arthurpicht.consoleToSlf4j.testUtils.Logging;
 import org.junit.jupiter.api.Order;
