@@ -3,7 +3,7 @@ plugins {
 }
 
 group = 'com.github.arthurpicht'
-version = '0.0.1-SNAPSHOT'
+version = '0.0.1'
 
 repositories {
     mavenCentral()
@@ -11,18 +11,14 @@ repositories {
 }
 
 dependencies {
-    implementation 'com.github.arthurpicht:console:0.1.7-SNAPSHOT'
-
+    implementation 'com.github.arthurpicht:console:0.2.1'
     implementation 'com.github.arthurpicht:utils-core:1.13.1'
     implementation 'org.slf4j:slf4j-api:2.0.12'
 
     testImplementation 'ch.qos.logback:logback-classic:1.5.2'
 
-//    testImplementation platform('org.junit:junit-bom:5.10.0')
-//    testImplementation 'org.junit.jupiter:junit-jupiter'
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.10.2'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.10.2'
-
 }
 
 test {
