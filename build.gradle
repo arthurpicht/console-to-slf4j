@@ -1,26 +1,52 @@
 plugins {
     id 'java'
+    id 'maven-publish'
 }
 
-group = 'com.github.arthurpicht'
-version = '0.0.1'
+group = 'de.arthurpicht'
+version = '0.0.2'
+def artifact = 'ap-console-to-slf4j'
 
 repositories {
+    maven { url "https://raw.githubusercontent.com/arthurpicht/mvn-repo/main/releases"}
     mavenCentral()
-    maven { url "https://jitpack.io" }
 }
 
 dependencies {
-    implementation 'com.github.arthurpicht:console:0.2.1'
-    implementation 'com.github.arthurpicht:utils-core:1.13.1'
-    implementation 'org.slf4j:slf4j-api:2.0.12'
+    implementation 'de.arthurpicht:ap-console:0.3.2'
+    implementation 'de.arthurpicht:ap-utils-core:1.19.0'
 
-    testImplementation 'ch.qos.logback:logback-classic:1.5.2'
+    implementation 'org.slf4j:slf4j-api:2.0.16'
 
-    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.10.2'
-    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.10.2'
+    testImplementation 'ch.qos.logback:logback-classic:1.5.12'
+
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.11.3'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.11.3'
+}
+
+java {
+    withJavadocJar()
+    withSourcesJar()
 }
 
 test {
     useJUnitPlatform()
+}
+
+base {
+    archivesName = artifact
+}
+
+publishing {
+    publications {
+        maven(MavenPublication) {
+            artifactId = artifact
+            from components.java
+        }
+    }
+    repositories {
+        maven {
+            url = layout.buildDirectory.dir(project.gradle.gradleUserHomeDir.parent + "/gitrepos/ap/mvn-repo/releases")
+        }
+    }
 }
